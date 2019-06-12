@@ -1,0 +1,206 @@
+#include <stdio.h>
+#include<locale.h>
+#include<math.h>
+#include<string.h>
+//Atividade 1
+void main()
+{
+  int n;
+  printf("Digite um número:  ");
+ scanf("%d", &n);
+ if(n%2 != 0)
+{
+printf("impar");
+}
+else
+{
+  printf("par");
+}
+printf("\n");
+
+}
+
+//Atividade 2
+void main(){
+int dia,diaatual,mes,mesatual,ano,anoatual,totaldias, diasano, diasmes;
+printf("Digite o dia que você nasceu:\n");
+scanf("%d",&dia);
+printf("Digite o mes que você nasceu:\n");
+scanf("%d",&mes);
+printf("Digite o ano que você nasceu:\n");
+scanf("%d",&ano);
+printf("Digite o dia (data de hoje):\n");
+scanf("%d",&diaatual);
+printf("Digite o mês (data de hoje):\n");
+scanf("%d",&mesatual);
+printf("Digite o ano (data de hoje):\n");
+scanf("%d",&anoatual);
+
+    for(int i = ano; i < anoatual; i++){
+        if(i % 4 == 0){
+            diasano =  diasano + 366;
+
+        } else {
+            diasano = diasano + 365;
+        }
+        if(ano % 4 == 0 && anoatual % 4 == 0)
+        {
+            diasmes = (12 - mes)*30+( mesatual*30);
+        }
+        else if(ano % 4 == 0 && anoatual % 4 != 0)
+        {
+            diasmes = (12 - mes)*30+( mesatual*30);
+        }
+        else if(ano % 4 != 0 && anoatual % 4 == 0)
+        {
+            diasmes = (12 - mes)*30+(mesatual*30);
+        }
+        else
+        {
+            diasmes = (12 - mes)*30+ mesatual*30;
+        }
+        totaldias = diasano - diasmes;
+    }
+
+   printf("Dias: %d",totaldias);
+}
+//Atividade 3
+
+void main(){
+float x, y;
+printf("Digite o valor de x: \n");
+scanf("%f", &x);
+printf("Digite o valor de y: \n");
+scanf("%f", &y);
+if(x > 0 && y > 0){
+printf("O ponto está no primeiro quadrante!\n");
+}
+else if(x < 0 && y > 0){
+    printf("O ponto está no Segundo quadrante!\n");
+}
+else if(x < 0 && y < 0){
+    printf("O Ponto está no Terceiro quadrante!\n");
+}
+else if(x > 0 && y < 0){
+    printf("O ponto está no Quarto quadrante!\n");
+}
+}
+
+//Atividade 4
+
+void main()
+{
+    int n;
+    printf("Digite a quantidade de numeros a serem usados para a media: ");
+    scanf("%d",&n);
+    float vetor[n], desvio;
+    float media = 0;
+    float vetor2[n];
+    float vetor3[n];
+    float variancia;
+    float total = 0;
+    float total2 = 0;
+    for(int i = 0; i < n; i++)
+    {
+        printf("Digite o %dº:", i+1);
+        scanf("%f",&vetor[i]);
+
+        total += vetor[i];
+        media = total/n;
+    }
+    for(int i = 0; i < n; i++)
+    {
+        vetor2[i] = vetor[i] - media;
+        vetor3[i] = pow(vetor2[i],2);
+        total += vetor3[i];
+    }
+    variancia = total/(n - 1);
+    desvio = sqrt(variancia);
+printf("A media e :%f; e o desvio padrao e: %f\n", media, desvio);
+}
+
+
+//Atividade 5
+int main (){
+for(int f = 1; f < 10; f++){
+    for(int m = 1; m < 11; m++){
+        printf("\t%d * %d = %d\n", f, m, f*m);
+    }
+}
+return 0;
+}
+
+//Atividade 6
+void main(){
+int arr[8][8];
+for(int i = 0; i < 8; i++){
+    arr[i][0] = 1;
+}
+
+for(int l = 0; l < 8; l++){
+    for(int c = 1; c < 8; c++){
+        arr[l][c] = 0;
+    }
+    for(int i = 1; i< 8; i++){
+        arr[i][i] = 1;
+    }
+    for(int l = 1; l < 8; l++){
+        for(int c = 1; c < 8; c++){
+            if(arr[l][c] == 0){
+                arr[l][c] = arr[l - 1][c] + arr[l - 1][c -1];
+            }
+        }
+    }
+}
+printf("              [%d]\n", arr[0][0]);
+printf("            [%d][%d]\n", arr[1][0], arr[1][1]);
+printf("          [%d][%d][%d]\n", arr[2][0], arr[2][1], arr[2][2]);
+printf("        [%d][%d][%d][%d]\n", arr[3][0], arr[3][1], arr[3][2], arr[3][3]);
+printf("      [%d][%d][%d][%d][%d]\n", arr[4][0], arr[4][1], arr[4][2], arr[4][3], arr[4][4]);
+printf("    [%d][%d][%d][%d][%d][%d]\n", arr[5][0], arr[5][1], arr[5][2], arr[5][3], arr[5][4], arr[5][5]);
+printf("  [%d][%d][%d][%d][%d][%d][%d]\n", arr[6][0], arr[6][1], arr[6][2], arr[6][3], arr[6][4], arr[6][5], arr[6][6]);
+printf("[%d][%d][%d][%d][%d][%d][%d][%d]\n", arr[7][0], arr[7][1], arr[7][2], arr[7][3], arr[7][4], arr[7][5], arr[7][6], arr[7][7]);
+}
+
+//Atividade 7
+
+void main(){
+char string[100];
+int tamanhostring;
+printf("Digite uma palavra: ");
+scanf("%s",&string);
+tamanhostring = strlen(string);
+for(int i = tamanhostring; i >= 0; i--){
+    printf("%c", string[i]);
+}
+}
+
+//Atividade 10
+void somar(int* a, int *b, int *resultado ){
+*resultado = *a + *b;}
+void subtrair(int* a,int *b, int *resultado){
+*resultado = *a - *b;
+}
+void dividir(int* a, int *b, int *resultado){
+*resultado = *a / *b;
+}
+void multiplicar(int* a, int *b, int *resultado){
+*resultado
+ = *a * *b;
+}
+void main(){
+    int n1, n2, s, s2, d,m;
+printf("Digite um número:" );
+scanf("%d", &n1);
+printf("Digite outro número: ");
+scanf("%d", &n2);
+
+somar(&n1, &n2, &s);
+printf("soma = %d\n", s);
+subtrair(&n1, &n2, &s2);
+printf("subtração = %d\n", s2);
+dividir(&n1, &n2, &d);
+printf("divisão = %d\n", d);
+multiplicar(&n1, &n2, &m);
+printf("multiplicação = %d\n",m);
+}
