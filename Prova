@@ -1,0 +1,26 @@
+//Questão 2
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#define TAMANHO 20
+
+
+void main() {
+    char vetor[TAMANHO];
+    char aux;
+    printf("Digite algo: ");
+    scanf("%s",vetor);
+
+    for (int i = 1; i < TAMANHO; i++) {
+        for (int j = 0; j < TAMANHO - 1; j++) {
+
+        if(strcmp(&vetor[j+1],&vetor[j]) < 0){
+            aux = vetor[j];
+            vetor[j] = vetor[j+1];
+            vetor[j+1] = aux;
+    }
+    }
+    }
+    printf("%s\n", vetor);
+}
